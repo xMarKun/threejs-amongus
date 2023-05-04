@@ -1,7 +1,9 @@
 // 参考: https://www.youtube.com/watch?v=rxTb9ys834w
+// GitHub: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33
 
 import * as THREE from 'three';
 
+import Debug from './Utils/Debug';
 import Sizes from './Utils/Sizes';
 import Time from './Utils/Time';
 import Resources from './Utils/Resources';
@@ -25,6 +27,9 @@ export default class Experience {
     this.renderer = new Renderer();
     this.resources = new Resources(assets);
     this.world = new World();
+    if (window.location.hash === '#debug') {
+      this.debug = new Debug();
+    }
 
     this.sizes.on('resize', () => {
       this.resize();

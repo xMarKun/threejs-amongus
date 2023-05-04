@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import GSAP from 'gsap';
+import { gsap } from 'gsap';
 
 import Experience from '../Experience';
 
@@ -73,7 +73,7 @@ export default class Crew {
   resize() {}
 
   update() {
-    this.lerp.current = GSAP.utils.interpolate(this.lerp.current, this.lerp.target, this.lerp.ease);
+    this.lerp.current = gsap.utils.interpolate(this.lerp.current, this.lerp.target, this.lerp.ease);
 
     this.actualCrew.rotation.y = this.lerp.current;
 

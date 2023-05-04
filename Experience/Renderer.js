@@ -20,7 +20,6 @@ export default class Renderer {
     });
 
     this.renderer.useLegacyLights = false;
-    // this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.CineonToneMapping;
     this.renderer.toneMappingExposure = 1.75;
     this.renderer.shadowMap.enabled = true;

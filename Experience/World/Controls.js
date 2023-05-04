@@ -1,4 +1,4 @@
-import GSAP from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Experience from '../Experience';
@@ -15,56 +15,59 @@ export default class Controls {
     this.circleFirst = this.experience.world.floor.circleFirst;
     this.circleSecond = this.experience.world.floor.circleSecond;
     this.circleThird = this.experience.world.floor.circleThird;
-    GSAP.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
     this.setScrollTrigger();
   }
 
   setScrollTrigger() {
     // first section
-    this.firstMoveTimeline = new GSAP.timeline({
-      scrollTrigger: {
-        trigger: '.first-move',
-        scrub: 0.6,
-        start: 'top top',
-        end: 'bottom bottom',
-        invalidateOnRefresh: true,
-      },
-    });
-    this.firstMoveTimeline.to(this.crew.position, {
-      x: () => this.sizes.width * 0.003,
-    });
+    this.firstMoveTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.first-move',
+          scrub: 0.6,
+          start: 'top top',
+          end: 'bottom bottom',
+          invalidateOnRefresh: true,
+        },
+      })
+      .to(this.crew.position, {
+        x: () => this.sizes.width * 0.003,
+      });
     // second section
-    this.secondMoveTimeline = new GSAP.timeline({
-      scrollTrigger: {
-        trigger: '.second-move',
-        scrub: 0.6,
-        start: 'top top',
-        end: 'bottom bottom',
-        invalidateOnRefresh: true,
-      },
-    });
-    this.secondMoveTimeline.to(this.crew.position, {
-      x: () => -this.sizes.width * 0.0026,
-    });
+    this.secondMoveTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.second-move',
+          scrub: 0.6,
+          start: 'top top',
+          end: 'bottom bottom',
+          invalidateOnRefresh: true,
+        },
+      })
+      .to(this.crew.position, {
+        x: () => -this.sizes.width * 0.0026,
+      });
     // third section
-    this.thirdMoveTimeline = new GSAP.timeline({
-      scrollTrigger: {
-        trigger: '.third-move',
-        scrub: 0.6,
-        start: 'top top',
-        end: 'bottom bottom',
-        invalidateOnRefresh: true,
-      },
-    });
-    this.thirdMoveTimeline.to(this.crew.position, {
-      x: 0,
-    });
+    this.thirdMoveTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.third-move',
+          scrub: 0.6,
+          start: 'top top',
+          end: 'bottom bottom',
+          invalidateOnRefresh: true,
+        },
+      })
+      .to(this.crew.position, {
+        x: 0,
+      });
     // section
     this.sections = document.querySelectorAll('.section');
     this.sections.forEach((section) => {
       if (section.classList.contains('right')) {
-        GSAP.to(section, {
+        gsap.to(section, {
           borderTopLeftRadius: 0,
           scrollTrigger: {
             trigger: section,
@@ -73,7 +76,7 @@ export default class Controls {
             scrub: 0.6,
           },
         });
-        GSAP.to(section, {
+        gsap.to(section, {
           borderBottomLeftRadius: 700,
           scrollTrigger: {
             trigger: section,
@@ -83,7 +86,7 @@ export default class Controls {
           },
         });
       } else {
-        GSAP.to(section, {
+        gsap.to(section, {
           borderTopRightRadius: 0,
           scrollTrigger: {
             trigger: section,
@@ -92,7 +95,7 @@ export default class Controls {
             scrub: 0.6,
           },
         });
-        GSAP.to(section, {
+        gsap.to(section, {
           borderBottomRightRadius: 700,
           scrollTrigger: {
             trigger: section,
@@ -104,47 +107,53 @@ export default class Controls {
       }
     });
     // first circle
-    this.firstCircleTimeline = new GSAP.timeline({
-      scrollTrigger: {
-        trigger: '.first-move',
-        scrub: 0.6,
-        start: 'top top',
-        end: 'bottom bottom',
-        invalidateOnRefresh: true,
-      },
-    }).to(this.circleFirst.scale, {
-      x: 3,
-      y: 3,
-      z: 3,
-    });
+    this.firstCircleTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.first-move',
+          scrub: 0.6,
+          start: 'top top',
+          end: 'bottom bottom',
+          invalidateOnRefresh: true,
+        },
+      })
+      .to(this.circleFirst.scale, {
+        x: 3,
+        y: 3,
+        z: 3,
+      });
     // second circle
-    this.secondCircleTimeline = new GSAP.timeline({
-      scrollTrigger: {
-        trigger: '.second-move',
-        scrub: 0.6,
-        start: 'top top',
-        end: 'bottom bottom',
-        invalidateOnRefresh: true,
-      },
-    }).to(this.circleSecond.scale, {
-      x: 3,
-      y: 3,
-      z: 3,
-    });
+    this.secondCircleTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.second-move',
+          scrub: 0.6,
+          start: 'top top',
+          end: 'bottom bottom',
+          invalidateOnRefresh: true,
+        },
+      })
+      .to(this.circleSecond.scale, {
+        x: 3,
+        y: 3,
+        z: 3,
+      });
     // third circle
-    this.thirdCircleTimeline = new GSAP.timeline({
-      scrollTrigger: {
-        trigger: '.third-move',
-        scrub: 0.6,
-        start: 'top top',
-        end: 'bottom bottom',
-        invalidateOnRefresh: true,
-      },
-    }).to(this.circleThird.scale, {
-      x: 3,
-      y: 3,
-      z: 3,
-    });
+    this.thirdCircleTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.third-move',
+          scrub: 0.6,
+          start: 'top top',
+          end: 'bottom bottom',
+          invalidateOnRefresh: true,
+        },
+      })
+      .to(this.circleThird.scale, {
+        x: 3,
+        y: 3,
+        z: 3,
+      });
   }
 
   resize() {}
