@@ -1,4 +1,4 @@
-# Three.js Portal
+# Three.js Among-Us
 
 ## 使い方
 
