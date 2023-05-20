@@ -17,10 +17,6 @@ export default class Environment {
     this.sunLight.shadow.mapSize.set(2048, 2048);
     this.sunLight.shadow.normalBias = 0.05;
 
-    // 影の位置を調整するためのヘルパーを表示
-    // const helper = new THREE.CameraHelper(this.sunLight.shadow.camera);
-    // this.scene.add(helper);
-
     this.sunLight.position.set(1.5, 7, 3); //影の位置を調整
     this.scene.add(this.sunLight);
 

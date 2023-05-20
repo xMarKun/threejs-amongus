@@ -28,12 +28,6 @@ export default class Crew {
       child.castShadow = true;
       child.receiveShadow = true;
 
-      // 個別にマテリアルを上書き ガラスとか
-      // マテリアルの設定に関してはexampleを参照
-      // if (child.name === 'blenderでメッシュに設定してある名前') {
-      //   child.material = new THREE.MeshBasicMaterial();
-      // }
-
       if (child.name === '平面001') {
         child.material = new THREE.MeshBasicMaterial({
           map: this.resources.items.screen,
@@ -51,9 +45,6 @@ export default class Crew {
 
     this.scene.add(this.actualCrew);
     this.actualCrew.rotation.y = Math.PI;
-
-    // 10*10のgridHelperから出るようであれば調整
-    // this.actualCrew.scale.set(0.11, 0.11, 0.11);
   }
 
   setAnimation() {
