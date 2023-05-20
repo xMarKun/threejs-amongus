@@ -8,9 +8,8 @@ export default class Debug {
     this.experience = new Experience();
     this.renderer = this.experience.renderer;
     this.gui = new GUI();
-    this.guiExposure = null;
 
-    this.params = { toneMapping: 'Cineon', exposure: 1.75 };
+    this.params = {};
 
     this.setToneMappingDebug();
     this.setExposureDebug();
@@ -25,21 +24,10 @@ export default class Debug {
       ACESFilmic: THREE.ACESFilmicToneMapping,
       Custom: THREE.CustomToneMapping,
     };
-    this.gui.add(this.params, 'toneMapping', Object.keys(toneMappingOptions)).onChange(() => {
-      this.renderer.renderer.toneMapping = toneMappingOptions[this.params.toneMapping];
-      this.setExposureDebug();
-    });
+    this.gui.add(this.renderer.renderer, 'toneMapping', toneMappingOptions);
   }
 
   setExposureDebug() {
-    if (this.guiExposure !== null) {
-      this.guiExposure.destroy();
-      this.guiExposure = null;
-    }
-    if (this.params.toneMapping !== 'None') {
-      this.guiExposure = this.gui.add(this.params, 'exposure', 0, 2).onChange(() => {
-        this.renderer.renderer.toneMappingExposure = this.params.exposure;
-      });
-    }
+    this.gui.add(this.renderer.renderer, 'toneMappingExposure', 0, 2);
   }
 }
